@@ -6,6 +6,8 @@ const axios = require('axios');
 const port = 3000;
 const app = express();
 
+const { productFeaturesHost, reviewsHost, checkoutHost, descriptionHost } = require('./service_hosts.js');
+
 // For dev purposes
 // const morgan = require('morgan');
 // app.use(morgan('dev'));
@@ -23,10 +25,9 @@ app.post('/product-features', async (req, res) => {
   };
 
   try {
-    const { data } = await axios.post('http://localhost:4000/product-features', postData);
+    const { data } = await axios.post(`${productFeaturesHost}/product-features`, postData);
     res.send(data);
   } catch(err) {
-    console.log('ERROR', err);
     res.status(500).send(err);
   }
 });
@@ -35,7 +36,8 @@ app.get('/product-features/:id', async (req, res) => {
   const { params: { id } } = req;
 
   try {
-    const { data } = await axios.get(`http://localhost:4000/product-features/${id}`);
+    const { data } = await axios.get(`${productFeaturesHost}/product-features/${id}`);
+    res.send(data);
   } catch (err) {
     res.status(500).send(err);
   }
@@ -49,7 +51,7 @@ app.put('/product-features/:id', async (req, res) => {
   };
 
   try {
-    const response = await axios.put(`http://localhost:4000/product-features/${id}`, updateData);
+    const response = await axios.put(`${productFeaturesHost}/product-features/${id}`, updateData);
     res.send(response);
   } catch(err) {
     res.status(500).send(err);
@@ -63,7 +65,7 @@ app.delete('/product-features/:id', async (req, res) => {
   };
 
   try {
-    const response = await axios.delete(`http://localhost:4000/product-features/${id}`, deleteData);
+    const response = await axios.delete(`${productFeaturesHost}/product-features/${id}`, deleteData);
     res.send(response);
   } catch(err) {
     res.status(500).send(err);
