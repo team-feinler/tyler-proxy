@@ -5,7 +5,7 @@ const fakeSentence = () => faker.lorem.sentence();
 const fakeDescription = () => faker.lorem.sentences();
 const fakeTitle = () => faker.name.jobArea();
 
-module.exports.generatefFeaturesTableRecord = () => {
+module.exports.generateFeaturesTableRecord = () => {
   const record = {
     feature_banner_header: `'${fakeHeader()}'`,
     feature_banner_text_1: `'${fakeDescription()}'`,

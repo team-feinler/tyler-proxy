@@ -1,4 +1,4 @@
-const { generatefFeaturesTableRecord } = require('./data_generator.js');
+const { generateFeaturesTableRecord } = require('./data_generator.js');
 
 function setUrlWithProductId(requestParams, context, ee, next) {
   const bottomTenPercentId = 9000000 + Math.ceil(Math.random() * 1000000);
@@ -11,7 +11,7 @@ function setUrlWithProductId(requestParams, context, ee, next) {
 function setFakeDataRecord(requestParams, context, ee, next) {
   const json = {
     table: 'features',
-    record: generatefFeaturesTableRecord(),
+    record: generateFeaturesTableRecord(),
   };
 
   requestParams.json = json;
