@@ -8,12 +8,15 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "start": "nodemon server/index.js"
+    "start": "nodemon server/index.js",
+    "stress-test-get": "artillery run stress_testing/get.yml",
+    "stress-test-post": "artillery run stress_testing/post.yml"
   },
   "dependencies": {
     "axios": "^0.21.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "faker": "^5.5.3",
     "morgan": "^1.10.0",
     "newrelic": "^7.3.0"
   },
